@@ -1,1 +1,1 @@
-Application is deployed with Azure DevOps
+Application is deployed with Azure DevOps - CICD implemented

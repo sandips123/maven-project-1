@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: Maven@3
+  displayName: Maven_Validate
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'validate'
@@ -23,6 +24,7 @@ steps:
     sonarQubeRunAnalysis: false
 
 - task: Maven@3
+  displayName: Maven_Test
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'test'
@@ -35,6 +37,7 @@ steps:
     sonarQubeRunAnalysis: false
 
 - task: Maven@3
+  displayName: Maven_Package
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
@@ -46,6 +49,7 @@ steps:
     sonarQubeRunAnalysis: false
 
 - task: PublishBuildArtifacts@1
+  displayName: Archive_Artifacts
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'

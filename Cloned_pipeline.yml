@@ -1,0 +1,22 @@
+pool:
+  name: Azure Pipelines
+  demands: maven
+
+steps:
+- task: Maven@3
+  displayName: 'Mavne_validate'
+  inputs:
+    goals: validate
+
+- task: Maven@3
+  displayName: 'Maven_test'
+  inputs:
+    goals: test
+
+- task: Maven@3
+  displayName: 'Maven_package'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'

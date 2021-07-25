@@ -1,1 +1,1 @@
-Application is deployed with Azure DevOps - CICD implemented  Enabled CI trigger
+Application is deployed with Azure DevOps - CICD implemented!!!! First Demo!!!

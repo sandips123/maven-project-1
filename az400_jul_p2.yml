@@ -1,0 +1,25 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
+  displayName: 'Maven validate'
+  inputs:
+    goals: validate
+
+- task: Maven@3
+  displayName: 'Maven test'
+  inputs:
+    goals: test
+
+- task: Maven@3
+  displayName: 'Maven package'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)'
+
